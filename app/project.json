@@ -9,6 +9,7 @@
     "拆并编组",
     "危险品检查",
     "净毛重核验",
+    "拼箱归属",
     "报关对账",
     "版本封存"
   ],
@@ -28,6 +29,7 @@
     "grouping",
     "hazard",
     "weight",
+    "allocation",
     "reconcile",
     "archive"
   ],
@@ -63,6 +65,23 @@
     "graph_errors": "关系错误",
     "weight_errors": "重量差异",
     "child": "子单号",
-    "classes": "危险类组合"
+    "classes": "危险类组合",
+    "root": "主单号",
+    "decision": "交接裁决",
+    "ready": "可先交接",
+    "held": "暂缓交接",
+    "unattributed": "未归属节点",
+    "declared_pieces": "归属件数",
+    "declared_net_kg": "归属净重 kg",
+    "declared_gross_kg": "归属毛重 kg",
+    "verified_pieces": "核验件数",
+    "verified_net_kg": "核验净重 kg",
+    "verified_gross_kg": "核验毛重 kg",
+    "actual_pieces": "实测件数",
+    "actual_net_kg": "实测净重 kg",
+    "actual_gross_kg": "实测毛重 kg",
+    "difference_pieces": "件数差",
+    "difference_net_kg": "净重差 kg",
+    "difference_gross_kg": "毛重差 kg"
   }
 }

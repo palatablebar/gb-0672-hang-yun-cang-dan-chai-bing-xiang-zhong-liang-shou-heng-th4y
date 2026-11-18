@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Request, Body
+from app.config import MODULES
 from app.engine import evaluate
 from app.web import render
 router=APIRouter()
@@ -7,4 +8,4 @@ def page(request:Request):
     return render(request,'hazard')
 @router.post('/api/hazard')
 def calculate(payload:dict=Body(default={})):
-    return evaluate(payload,until=4)
+    return evaluate(payload,until=MODULES.index('hazard')+1)

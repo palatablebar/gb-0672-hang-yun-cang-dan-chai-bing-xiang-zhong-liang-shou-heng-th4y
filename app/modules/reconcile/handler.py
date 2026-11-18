@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Request, Body
+from app.config import MODULES
 from app.engine import evaluate
 from app.web import render
 router=APIRouter()
@@ -7,4 +8,4 @@ def page(request:Request):
     return render(request,'reconcile')
 @router.post('/api/reconcile')
 def calculate(payload:dict=Body(default={})):
-    return evaluate(payload,until=6)
+    return evaluate(payload,until=MODULES.index('reconcile')+1)

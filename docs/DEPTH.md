@@ -11,8 +11,9 @@
 | M3 拆并编组 | 执行并复核拆并编组 | `POST /api/grouping` | `app/modules/grouping/rules.py` | `tests/test_grouping.py` |
 | M4 危险品检查 | 执行并复核危险品检查 | `POST /api/hazard` | `app/modules/hazard/rules.py` | `tests/test_hazard.py` |
 | M5 净毛重核验 | 执行并复核净毛重核验 | `POST /api/weight` | `app/modules/weight/rules.py` | `tests/test_weight.py` |
-| M6 报关对账 | 执行并复核报关对账 | `POST /api/reconcile` | `app/modules/reconcile/rules.py` | `tests/test_reconcile.py` |
-| M7 版本封存 | 执行并复核版本封存 | `POST /api/archive` | `app/modules/archive/rules.py` | `tests/test_archive.py` |
+| M6 拼箱归属 | 执行并复核拼箱归属 | `POST /api/allocation` | `app/modules/allocation/rules.py` | `tests/test_allocation.py` |
+| M7 报关对账 | 执行并复核报关对账 | `POST /api/reconcile` | `app/modules/reconcile/rules.py` | `tests/test_reconcile.py` |
+| M8 版本封存 | 执行并复核版本封存 | `POST /api/archive` | `app/modules/archive/rules.py` | `tests/test_archive.py` |
 
 ## 陷阱登记
 
@@ -29,6 +30,10 @@
 | TRAP-06 | 全角千分位 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/packaging/rules.py` | `tests/test_packaging.py::test_fullwidth_decimal` |
 | TRAP-20 | 拆并依赖环 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/grouping/rules.py` | `tests/test_grouping.py::test_cycle_real` |
 | TRAP-21 | 缺失父级 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/grouping/rules.py` | `tests/test_grouping.py::test_missing_parent_real` |
+| TRAP-22 | 同件重复计入 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/allocation/rules.py` | `tests/test_allocation.py::test_no_double_count_global` |
+| TRAP-23 | 箱实不符裁决 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/allocation/rules.py` | `tests/test_allocation.py::test_container_actual_mismatch` |
+| TRAP-24 | 重试重复归属 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/store.py` | `tests/test_allocation.py::test_retry_same_plan_no_second_attribution` |
+| TRAP-25 | 确认失败回滚 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/store.py` | `tests/test_allocation.py::test_failed_confirm_keeps_original` |
 
 ## 对账规则
 

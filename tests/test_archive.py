@@ -6,7 +6,7 @@ import zipfile,io,json
 def test_clean_ready(clean):
     assert clean['archive']['status']=='可封存'
 def test_dirty_blocked(sample):
-    assert sample['archive']['status']=='待处理';assert sample['archive']['blocked']==10
+    assert sample['archive']['status']=='待处理';assert sample['archive']['blocked']==13
 def test_evidence_bundle(sample):
     z=zipfile.ZipFile(io.BytesIO(serialize(sample)));e=json.loads(z.read('evidence.json'));assert e['counts']['input']==52
 def test_graph_failure_blocks(clean):
